@@ -1,0 +1,12 @@
+min = -4588 + 824i; % maxi
+max = -808 + 4496i;
+stred = (real(max)-real(min))/2 + real(min) ...
+    + ((imag(max)-imag(min))/2 + imag(min))*1i;
+polomer = (real(max)-real(min))/2 ...
+    + (imag(max)-imag(min))/2*1i;
+circle(real(polomer),stred,'-');
+hold on;
+axis equal;
+roommarkgoal = -4140+ 3546i; % cil v prvnim pokusu lenka duskova
+circle(100,roommarkgoal,'r');
+hold off;

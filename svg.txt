@@ -1,0 +1,21 @@
+;DIR=d:\prace\mff\data\IvetaKamil\experiment rhodos\date_newname\
+DIR=g:\bondy\prace\mff\data\IvetaKamil\experiment rhodos\date_newname\
+; rozdeleny eyetrack
+;JM090820_konf3.tr
+;END
+;eyetrack
+JM090820_konf1.tr
+
+;HS090814_konf4.tr
+;HS090814_konf2.tr
+END
+
+;cisty track
+;DL090820_konf1.tr
+;END 
+
+
+;DIR=d:\prace\programovani\qbasic\olga\data\
+;12290808.TR1
+
+END

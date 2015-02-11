@@ -1,0 +1,5 @@
+29.4.2008
+snad mi funguje nekolik cilu za sebou
+->jeste potrebuju dodelat cile relativni ke startu
+snad mi funguje i zobrazovani cues
+funguje mi to s datama epileptickych deti

@@ -1,0 +1,9 @@
+hold off;
+circle(140,0,0,'-');
+hold on;
+pozice = [-53, 126];
+view0 = [96,-101];
+view1 = [47, 
+circle(5,pozice(1),pozice(2),'-');
+grid on;
+hold off;

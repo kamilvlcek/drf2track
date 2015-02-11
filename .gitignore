@@ -1,0 +1,17 @@
+filelists/
+zalohy/
+.settings/
+files/
+exports/
+verze/
+data/
+wholeimages/
+tables/
+images/
+*.treeDB
+*.graphml
+*.csv
+*.xls
+*.zip
+*.log
+debug*

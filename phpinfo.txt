@@ -1,0 +1,363 @@
+phpinfo()
+PHP Version => 4.3.4
+
+System => Windows NT AMYGDALA2 5.0 build 2195
+Build Date => Nov  2 2003 23:43:42
+Server API => Command Line Interface
+Virtual Directory Support => enabled
+Configuration File (php.ini) Path => c:\php\cli\php.ini
+PHP API => 20020918
+PHP Extension => 20020429
+Zend Extension => 20021010
+Debug Build => no
+Thread Safety => enabled
+Registered PHP Streams => php, http, ftp, compress.zlib  
+
+
+This program makes use of the Zend Scripting Language Engine:
+Zend Engine v1.3.0, Copyright (c) 1998-2003 Zend Technologies
+
+
+ _______________________________________________________________________
+
+
+Configuration
+
+PHP Core
+
+Directive => Local Value => Master Value
+allow_call_time_pass_reference => Off => Off
+allow_url_fopen => On => On
+always_populate_raw_post_data => Off => Off
+arg_separator.input => & => &
+arg_separator.output => & => &
+asp_tags => Off => Off
+auto_append_file => no value => no value
+auto_prepend_file => no value => no value
+browscap => no value => no value
+default_charset => no value => no value
+default_mimetype => text/html => text/html
+define_syslog_variables => Off => Off
+disable_classes => no value => no value
+disable_functions => no value => no value
+display_errors => Off => Off
+display_startup_errors => Off => Off
+doc_root => no value => no value
+docref_ext => no value => no value
+docref_root => no value => no value
+enable_dl => On => On
+error_append_string => no value => no value
+error_log => no value => no value
+error_prepend_string => no value => no value
+error_reporting => 2047 => 2047
+expose_php => On => On
+extension_dir => c:\php\extensions\ => c:\php\extensions\
+file_uploads => On => On
+gpc_order => GPC => GPC
+highlight.bg => #FFFFFF => #FFFFFF
+highlight.comment => #FF8000 => #FF8000
+highlight.default => #0000BB => #0000BB
+highlight.html => #000000 => #000000
+highlight.keyword => #007700 => #007700
+highlight.string => #DD0000 => #DD0000
+html_errors => Off => On
+ignore_repeated_errors => Off => Off
+ignore_repeated_source => Off => Off
+ignore_user_abort => Off => Off
+implicit_flush => On => Off
+include_path => .;c:\php4\pear => .;c:\php4\pear
+log_errors => On => On
+log_errors_max_len => 1024 => 1024
+magic_quotes_gpc => Off => Off
+magic_quotes_runtime => Off => Off
+magic_quotes_sybase => Off => Off
+max_execution_time => 0 => 300
+max_input_time => 60 => 60
+open_basedir => no value => no value
+output_buffering => no value => no value
+output_handler => no value => no value
+post_max_size => 8M => 8M
+precision => 14 => 14
+register_argc_argv => On => Off
+register_globals => Off => Off
+report_memleaks => On => On
+safe_mode => Off => Off
+safe_mode_exec_dir => no value => no value
+safe_mode_gid => Off => Off
+safe_mode_include_dir => no value => no value
+sendmail_from => no value => no value
+sendmail_path => no value => no value
+serialize_precision => 100 => 100
+short_open_tag => On => On
+SMTP => localhost => localhost
+smtp_port => 25 => 25
+sql.safe_mode => Off => Off
+track_errors => Off => Off
+unserialize_callback_func => no value => no value
+upload_max_filesize => 2M => 2M
+upload_tmp_dir => no value => no value
+user_dir => no value => no value
+variables_order => GPCS => GPCS
+xmlrpc_error_number => 0 => 0
+xmlrpc_errors => Off => Off
+y2k_compliance => On => On
+
+bcmath
+
+BCMath support => enabled
+
+calendar
+
+Calendar support => enabled
+
+com
+
+Directive => Local Value => Master Value
+com.allow_dcom => Off => Off
+com.autoregister_casesensitive => On => On
+com.autoregister_typelib => Off => Off
+com.autoregister_verbose => Off => Off
+com.typelib_file => no value => no value
+
+ctype
+
+ctype functions => enabled
+
+ftp
+
+FTP support => enabled
+
+gd
+
+GD Support => enabled
+GD Version => bundled (2.0.15 compatible)
+FreeType Support => enabled
+FreeType Linkage => with freetype
+GIF Read Support => enabled
+JPG Support => enabled
+PNG Support => enabled
+WBMP Support => enabled
+XBM Support => enabled
+
+mysql
+
+MySQL Support => enabled
+Active Persistent Links => 0
+Active Links => 0
+Client API version => 3.23.49
+
+Directive => Local Value => Master Value
+mysql.allow_persistent => On => On
+mysql.connect_timeout => 60 => 60
+mysql.default_host => no value => no value
+mysql.default_password => no value => no value
+mysql.default_port => no value => no value
+mysql.default_socket => no value => no value
+mysql.default_user => no value => no value
+mysql.max_links => Unlimited => Unlimited
+mysql.max_persistent => Unlimited => Unlimited
+mysql.trace_mode => Off => Off
+
+odbc
+
+ODBC Support => enabled
+Active Persistent Links => 0
+Active Links => 0
+ODBC library => Win32
+
+Directive => Local Value => Master Value
+odbc.allow_persistent => On => On
+odbc.check_persistent => On => On
+odbc.default_db => no value => no value
+odbc.default_pw => <i>no value</i> => <i>no value</i>
+odbc.default_user => no value => no value
+odbc.defaultbinmode => return as is => return as is
+odbc.defaultlrl => return up to 4096 bytes => return up to 4096 bytes
+odbc.max_links => Unlimited => Unlimited
+odbc.max_persistent => Unlimited => Unlimited
+
+overload
+
+User-Space Object Overloading Support => enabled
+
+pcre
+
+PCRE (Perl Compatible Regular Expressions) Support => enabled
+PCRE Library Version => 4.3 21-May-2003
+
+session
+
+Session Support => enabled
+Registered save handlers => files user 
+
+Directive => Local Value => Master Value
+session.auto_start => Off => Off
+session.bug_compat_42 => Off => Off
+session.bug_compat_warn => On => On
+session.cache_expire => 180 => 180
+session.cache_limiter => nocache => nocache
+session.cookie_domain => no value => no value
+session.cookie_lifetime => 0 => 0
+session.cookie_path => / => /
+session.cookie_secure => Off => Off
+session.entropy_file => no value => no value
+session.entropy_length => 0 => 0
+session.gc_divisor => 1000 => 1000
+session.gc_maxlifetime => 1440 => 1440
+session.gc_probability => 1 => 1
+session.name => PHPSESSID => PHPSESSID
+session.referer_check => no value => no value
+session.save_handler => files => files
+session.save_path => /tmp => /tmp
+session.serialize_handler => php => php
+session.use_cookies => On => On
+session.use_only_cookies => Off => Off
+session.use_trans_sid => Off => Off
+
+standard
+
+Regex Library => Bundled library enabled
+Dynamic Library Support => enabled
+Internal Sendmail Support for Windows => enabled
+
+Directive => Local Value => Master Value
+assert.active => 1 => 1
+assert.bail => 0 => 0
+assert.callback => no value => no value
+assert.quiet_eval => 0 => 0
+assert.warning => 1 => 1
+auto_detect_line_endings => 0 => 0
+default_socket_timeout => 60 => 60
+safe_mode_allowed_env_vars => PHP_ => PHP_
+safe_mode_protected_env_vars => LD_LIBRARY_PATH => LD_LIBRARY_PATH
+url_rewriter.tags => a=href,area=href,frame=src,input=src,form=fakeentry => a=href,area=href,frame=src,input=src,form=fakeentry
+user_agent => no value => no value
+
+tokenizer
+
+Tokenizer Support => enabled
+
+wddx
+
+WDDX Support => enabled
+WDDX Session Serializer => enabled
+
+xml
+
+XML Support => active
+XML Namespace Support => active
+EXPAT Version => 1.95.6
+
+zlib
+
+ZLib Support => enabled
+Compiled Version => 1.1.4
+Linked Version => 1.1.4
+
+Directive => Local Value => Master Value
+zlib.output_compression => Off => Off
+zlib.output_compression_level => -1 => -1
+zlib.output_handler => no value => no value
+
+Additional Modules
+
+Module Name
+
+Environment
+
+Variable => Value
+ALLUSERSPROFILE => C:\Documents and Settings\All Users
+APPDATA => \\svr332\profiles$\kamil\Application Data
+COMMANDER_DRIVE => C:
+COMMANDER_INI => G:\users\kamil\setup\totalcmd\wincmd.ini
+COMMANDER_PATH => C:\totalcmd
+CommonProgramFiles => C:\Program Files\Common Files
+COMPUTERNAME => AMYGDALA2
+ComSpec => C:\WINNT\system32\cmd.exe
+HOMEDRIVE => Z:
+HOMEPATH => \
+HOMESHARE => \\svr332\users$\kamil
+LOGONSERVER => \\SVR332
+multiDesk => D:\kamil\programy\Multidesk\shortcuts
+NUMBER_OF_PROCESSORS => 2
+OS => Windows_NT
+Os2LibPath => C:\WINNT\system32\os2\dll;
+Path => C:\WINNT\system32;C:\WINNT;C:\WINNT\system32\wbem;c:\program files\intel\dmix;C:\Program Files\MATLAB\R2007b\bin;C:\Program Files\MATLAB\R2007b\bin\win32;C:\Program Files\MATLAB\R2006b\bin;C:\Program Files\MATLAB\R2006b\bin\win32;C:\Program Files\Zend\ZendPlatform-2.2.1\bin
+PATHEXT => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+PHPRC => C:\Program Files\Zend\ZendPlatform-2.2.1\etc\php.ini
+PROCESSOR_ARCHITECTURE => x86
+PROCESSOR_IDENTIFIER => x86 Family 6 Model 15 Stepping 6, GenuineIntel
+PROCESSOR_LEVEL => 6
+PROCESSOR_REVISION => 0f06
+ProgramFiles => C:\Program Files
+PROMPT => $P$G
+SystemDrive => C:
+SystemRoot => C:\WINNT
+TEMP => C:\DOCUME~1\KAMIL~1.FGU\LOCALS~1\Temp
+TMP => C:\DOCUME~1\KAMIL~1.FGU\LOCALS~1\Temp
+USERDNSDOMAIN => fgu332new.biomed.cas.cz
+USERDOMAIN => FGU332NEW
+USERNAME => kamil
+USERPROFILE => C:\Documents and Settings\kamil.FGU332NEW
+windir => C:\WINNT
+
+PHP Variables
+
+Variable => Value
+_SERVER["ALLUSERSPROFILE"] => C:\Documents and Settings\All Users
+_SERVER["APPDATA"] => \\svr332\profiles$\kamil\Application Data
+_SERVER["COMMANDER_DRIVE"] => C:
+_SERVER["COMMANDER_INI"] => G:\users\kamil\setup\totalcmd\wincmd.ini
+_SERVER["COMMANDER_PATH"] => C:\totalcmd
+_SERVER["CommonProgramFiles"] => C:\Program Files\Common Files
+_SERVER["COMPUTERNAME"] => AMYGDALA2
+_SERVER["ComSpec"] => C:\WINNT\system32\cmd.exe
+_SERVER["HOMEDRIVE"] => Z:
+_SERVER["HOMEPATH"] => \
+_SERVER["HOMESHARE"] => \\svr332\users$\kamil
+_SERVER["LOGONSERVER"] => \\SVR332
+_SERVER["multiDesk"] => D:\kamil\programy\Multidesk\shortcuts
+_SERVER["NUMBER_OF_PROCESSORS"] => 2
+_SERVER["OS"] => Windows_NT
+_SERVER["Os2LibPath"] => C:\WINNT\system32\os2\dll;
+_SERVER["Path"] => C:\WINNT\system32;C:\WINNT;C:\WINNT\system32\wbem;c:\program files\intel\dmix;C:\Program Files\MATLAB\R2007b\bin;C:\Program Files\MATLAB\R2007b\bin\win32;C:\Program Files\MATLAB\R2006b\bin;C:\Program Files\MATLAB\R2006b\bin\win32;C:\Program Files\Zend\ZendPlatform-2.2.1\bin
+_SERVER["PATHEXT"] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+_SERVER["PHPRC"] => C:\Program Files\Zend\ZendPlatform-2.2.1\etc\php.ini
+_SERVER["PROCESSOR_ARCHITECTURE"] => x86
+_SERVER["PROCESSOR_IDENTIFIER"] => x86 Family 6 Model 15 Stepping 6, GenuineIntel
+_SERVER["PROCESSOR_LEVEL"] => 6
+_SERVER["PROCESSOR_REVISION"] => 0f06
+_SERVER["ProgramFiles"] => C:\Program Files
+_SERVER["PROMPT"] => $P$G
+_SERVER["SystemDrive"] => C:
+_SERVER["SystemRoot"] => C:\WINNT
+_SERVER["TEMP"] => C:\DOCUME~1\KAMIL~1.FGU\LOCALS~1\Temp
+_SERVER["TMP"] => C:\DOCUME~1\KAMIL~1.FGU\LOCALS~1\Temp
+_SERVER["USERDNSDOMAIN"] => fgu332new.biomed.cas.cz
+_SERVER["USERDOMAIN"] => FGU332NEW
+_SERVER["USERNAME"] => kamil
+_SERVER["USERPROFILE"] => C:\Documents and Settings\kamil.FGU332NEW
+_SERVER["windir"] => C:\WINNT
+_SERVER["PHP_SELF"] => phpinfo.php
+_SERVER["SCRIPT_NAME"] => phpinfo.php
+_SERVER["SCRIPT_FILENAME"] => phpinfo.php
+_SERVER["PATH_TRANSLATED"] => phpinfo.php
+_SERVER["DOCUMENT_ROOT"] => 
+_SERVER["argv"] => Array
+(
+    [0] => phpinfo.php
+)
+
+_SERVER["argc"] => 1
+
+PHP License
+This program is free software; you can redistribute it and/or modify
+it under the terms of the PHP License as published by the PHP Group
+and included in the distribution in the file:  LICENSE
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+If you did not receive a copy of the PHP license, or have any
+questions about PHP licensing, please contact license@php.net.

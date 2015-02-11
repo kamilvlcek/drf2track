@@ -1,0 +1,29 @@
+%limits	45	90	135	180	225	270	315	360	trial	phase
+dir = 'g:\bondy\prace\mff\data\IvetaKamil\experiment rhodos\exp2\tables\';
+table = load([dir 'DF100107-2_2_0.viewhisto.xls']);
+trial = 18;
+histo = table(table(:,10)==trial,2:9); % histogram pro jeden trial
+histo = histo(2:end,:);
+histo(size(histo,1)+1,:)=zeros(1,size(histo,2)); % pridam prazdnou radku a sloupec na konec - ty se nekresli
+histo(:,size(histo,2)+1)=zeros(size(histo,1),1);
+
+histo = histo';
+stupne = [0 45 90 135 180 225 270 315 360]; %osa y grafu
+timebins = 1:size(histo,2); %osa x grafu
+pcolor(timebins,stupne,histo);
+set(gcf,'Colormap',hot); %tu mycmap jsem ulozil do 'colormap.mat'
+colorbar;
+%axis([1 20 0 360]);
+if(size(table,2)>=14)
+    mark1 = table(table(:,10)==trial & table(:,1)==0,14);
+    line([1 size(histo,2)],[mark1 mark1],'Color','r','LineWidth',2); % cara ukazujici nahodny vykon
+    
+end
+if(size(table,2)>=16)
+    mark2 = table(table(:,10)==trial & table(:,1)==0,16);
+    line([1 size(histo,2)],[mark2 mark2],'Color','g','LineWidth',2); % cara ukazujici nahodny vykon
+end
+if(size(table,2)>=18)
+    mark3 = table(table(:,10)==trial & table(:,1)==0,18);
+    line([1 size(histo,2)],[mark3 mark3],'Color','b','LineWidth',2); % cara ukazujici nahodny vykon
+end

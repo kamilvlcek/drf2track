@@ -1,0 +1,381 @@
+object(SpaNavCfg_frame)#6 (7) {
+  ["marks_x"]=>
+  NULL
+  ["marks_y"]=>
+  NULL
+  ["goals"]=>
+  NULL
+  ["starts"]=>
+  NULL
+  ["sekv_goals"]=>
+  array(1) {
+    [0]=>
+    array(18) {
+      [0]=>
+      object(CPoint)#18 (2) {
+        ["x"]=>
+        int(-4140)
+        ["y"]=>
+        int(3546)
+      }
+      [1]=>
+      object(CPoint)#20 (2) {
+        ["x"]=>
+        int(-1405)
+        ["y"]=>
+        int(1875)
+      }
+      [2]=>
+      object(CPoint)#24 (2) {
+        ["x"]=>
+        int(-1370)
+        ["y"]=>
+        int(1949)
+      }
+      [3]=>
+      object(CPoint)#28 (2) {
+        ["x"]=>
+        int(-1201)
+        ["y"]=>
+        int(2335)
+      }
+      [4]=>
+      object(CPoint)#32 (2) {
+        ["x"]=>
+        int(-2923)
+        ["y"]=>
+        int(4337)
+      }
+      [5]=>
+      object(CPoint)#36 (2) {
+        ["x"]=>
+        int(-4255)
+        ["y"]=>
+        int(2168)
+      }
+      [6]=>
+      object(CPoint)#40 (2) {
+        ["x"]=>
+        int(-1191)
+        ["y"]=>
+        int(2416)
+      }
+      [7]=>
+      object(CPoint)#44 (2) {
+        ["x"]=>
+        int(-4255)
+        ["y"]=>
+        int(2168)
+      }
+      [8]=>
+      object(CPoint)#48 (2) {
+        ["x"]=>
+        int(-3407)
+        ["y"]=>
+        int(4208)
+      }
+      [9]=>
+      object(CPoint)#52 (2) {
+        ["x"]=>
+        int(-1883)
+        ["y"]=>
+        int(4098)
+      }
+      [10]=>
+      object(CPoint)#56 (2) {
+        ["x"]=>
+        int(-3087)
+        ["y"]=>
+        int(1184)
+      }
+      [11]=>
+      object(CPoint)#60 (2) {
+        ["x"]=>
+        int(-1741)
+        ["y"]=>
+        int(1501)
+      }
+      [12]=>
+      object(CPoint)#64 (2) {
+        ["x"]=>
+        int(-4345)
+        ["y"]=>
+        int(2580)
+      }
+      [13]=>
+      object(CPoint)#68 (2) {
+        ["x"]=>
+        int(-1405)
+        ["y"]=>
+        int(1875)
+      }
+      [14]=>
+      object(CPoint)#72 (2) {
+        ["x"]=>
+        int(-3943)
+        ["y"]=>
+        int(1677)
+      }
+      [15]=>
+      object(CPoint)#76 (2) {
+        ["x"]=>
+        int(-3168)
+        ["y"]=>
+        int(1194)
+      }
+      [16]=>
+      object(CPoint)#80 (2) {
+        ["x"]=>
+        int(-3407)
+        ["y"]=>
+        int(4208)
+      }
+      [17]=>
+      object(CPoint)#84 (2) {
+        ["x"]=>
+        int(-4002)
+        ["y"]=>
+        int(1733)
+      }
+    }
+  }
+  ["sekv_goal_names"]=>
+  array(1) {
+    [0]=>
+    array(18) {
+      [0]=>
+      string(12) "RoomMarkGoal"
+      [1]=>
+      string(13) "ArenaMarkGoal"
+      [2]=>
+      string(12) "RoomMarkGoal"
+      [3]=>
+      string(13) "ArenaMarkGoal"
+      [4]=>
+      string(12) "RoomMarkGoal"
+      [5]=>
+      string(13) "ArenaMarkGoal"
+      [6]=>
+      string(12) "RoomMarkGoal"
+      [7]=>
+      string(13) "ArenaMarkGoal"
+      [8]=>
+      string(12) "RoomMarkGoal"
+      [9]=>
+      string(13) "ArenaMarkGoal"
+      [10]=>
+      string(12) "RoomMarkGoal"
+      [11]=>
+      string(13) "ArenaMarkGoal"
+      [12]=>
+      string(12) "RoomMarkGoal"
+      [13]=>
+      string(13) "ArenaMarkGoal"
+      [14]=>
+      string(12) "RoomMarkGoal"
+      [15]=>
+      string(13) "ArenaMarkGoal"
+      [16]=>
+      string(12) "RoomMarkGoal"
+      [17]=>
+      string(13) "ArenaMarkGoal"
+    }
+  }
+  ["marks"]=>
+  array(1) {
+    [0]=>
+    array(19) {
+      [0]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#17 (2) {
+          ["x"]=>
+          int(-4236)
+          ["y"]=>
+          int(3616)
+        }
+      }
+      [1]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#22 (2) {
+          ["x"]=>
+          int(-1414)
+          ["y"]=>
+          int(1851)
+        }
+      }
+      [2]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#26 (2) {
+          ["x"]=>
+          int(-1275)
+          ["y"]=>
+          int(1880)
+        }
+      }
+      [3]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#30 (2) {
+          ["x"]=>
+          int(-1202)
+          ["y"]=>
+          int(2309)
+        }
+      }
+      [4]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#34 (2) {
+          ["x"]=>
+          int(-2923)
+          ["y"]=>
+          int(4455)
+        }
+      }
+      [5]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#38 (2) {
+          ["x"]=>
+          int(-4270)
+          ["y"]=>
+          int(2189)
+        }
+      }
+      [6]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#42 (2) {
+          ["x"]=>
+          int(-1079)
+          ["y"]=>
+          int(2380)
+        }
+      }
+      [7]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#46 (2) {
+          ["x"]=>
+          int(-4270)
+          ["y"]=>
+          int(2189)
+        }
+      }
+      [8]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#50 (2) {
+          ["x"]=>
+          int(-3443)
+          ["y"]=>
+          int(4320)
+        }
+      }
+      [9]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#54 (2) {
+          ["x"]=>
+          int(-1859)
+          ["y"]=>
+          int(4089)
+        }
+      }
+      [10]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#58 (2) {
+          ["x"]=>
+          int(-3123)
+          ["y"]=>
+          int(1071)
+        }
+      }
+      [11]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#62 (2) {
+          ["x"]=>
+          int(-1756)
+          ["y"]=>
+          int(1480)
+        }
+      }
+      [12]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#66 (2) {
+          ["x"]=>
+          int(-4463)
+          ["y"]=>
+          int(2580)
+        }
+      }
+      [13]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#70 (2) {
+          ["x"]=>
+          int(-1414)
+          ["y"]=>
+          int(1851)
+        }
+      }
+      [14]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#74 (2) {
+          ["x"]=>
+          int(-4038)
+          ["y"]=>
+          int(1608)
+        }
+      }
+      [15]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#78 (2) {
+          ["x"]=>
+          int(-3194)
+          ["y"]=>
+          int(1194)
+        }
+      }
+      [16]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#82 (2) {
+          ["x"]=>
+          int(-3443)
+          ["y"]=>
+          int(4320)
+        }
+      }
+      [17]=>
+      array(1) {
+        ["ArenaFrameMark"]=>
+        object(CPoint)#86 (2) {
+          ["x"]=>
+          int(-4023)
+          ["y"]=>
+          int(1749)
+        }
+      }
+      [18]=>
+      array(1) {
+        ["RoomFrameMark"]=>
+        object(CPoint)#90 (2) {
+          ["x"]=>
+          int(-2068)
+          ["y"]=>
+          int(1175)
+        }
+      }
+    }
+  }
+}
+
