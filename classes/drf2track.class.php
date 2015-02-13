@@ -208,7 +208,7 @@ class Drf2Track {
 		  $this->txttable->AddColumns(array_merge(array(
 		    "datum","soubor","track","faze","trial","frame",
 		    "name",/*MWM2*/ "markname","markcount","markgroup","goaltype", /**/
-		    "cilx","cily","bodx","boxy","startx","starty",
+		    "cilx","cily","bodx","body","startx","starty",
 		    "trialdist","trialangle","trialangleabs","mindist","path_efficiency",
 		    "time","angleerr","disterr",
 		    "distfromgoal",/* MWM2*/ "distsymmetry", /**/
