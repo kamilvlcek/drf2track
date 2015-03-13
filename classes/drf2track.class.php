@@ -38,7 +38,7 @@ define('ANGLEMINDIST',5); // o kolik clovek musi odejit ze startu, aby se zacala
 define('TARGETCORRIDORANGLE',20); // max uhlovy rozdil v target coridoru - uhel od startu k cili
 define('KLAVESYKRESLI',0); // jestli do obrazku kreslit stlacene klavesy - 15.10.2014
 define('FILENAMEKRESLI',1); // jestli do obrazku kreslit nazev souboru  - 15.10.2014
-define('TRACKHISTO',1); //pocita a ulozi do txt souboru histogram z tracku, kvuli probetrialum ve vFGN a pohlavnim rozdilum - 10.11.2014
+define('TRACKHISTO',0); //pocita a ulozi do txt souboru histogram z tracku, kvuli probetrialum ve vFGN a pohlavnim rozdilum - 10.11.2014
 define('SAVETABLE',0); // jestli se ma ulozit individualni vystupni tabulka  - 14.11.2014
 define('SAVEHTML',0); // jestli se ma ulozit individualni HTML s odkazem na obrazek  - 14.11.2014
 /*
