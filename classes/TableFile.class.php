@@ -32,8 +32,8 @@ class TableFile  {
    * @param string $filename
    * @param FH $fh
    */
-  function __construct($filename,$fh=FALSE){
-  	if(!$fh){
+  function __construct($filename=false,$fh=FALSE){
+  	if(!$fh && $filename){
   		$this->fileopen($filename);
   	} else {
       $this->filehandleset($fh);

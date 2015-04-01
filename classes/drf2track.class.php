@@ -203,7 +203,7 @@ class Drf2Track {
 		} else {
 		  $this->error = false;
 		  $this->trackvars = &$trackvars;
-		  $this->txttable = new TableFile($this->filename_towrite(TABLESDIR).".xls");
+		  $this->txttable = new TableFile(SAVETABLE?$this->filename_towrite(TABLESDIR).".xls":false);
 		  $this->CKvadranty = new Kvadranty();
 		  $this->txttable->AddColumns(array_merge(array(
 		    "datum","soubor","track","faze","trial","frame",
