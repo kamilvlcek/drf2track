@@ -36,11 +36,12 @@ define('EYEVIEWANGLE',4); // jak velky uhel kolem znacky nas zajima, jeho polovi
 // do 25.4.2013 tu bylo EYEVIEWANGLE=15
 define('ANGLEMINDIST',5); // o kolik clovek musi odejit ze startu, aby se zacala pocitat prumerna uhlova odchylka
 define('TARGETCORRIDORANGLE',20); // max uhlovy rozdil v target coridoru - uhel od startu k cili
-define('KLAVESYKRESLI',0); // jestli do obrazku kreslit stlacene klavesy - 15.10.2014
+define('KLAVESYKRESLI',1); // jestli do obrazku kreslit stlacene klavesy - 15.10.2014
 define('FILENAMEKRESLI',1); // jestli do obrazku kreslit nazev souboru  - 15.10.2014
 define('TRACKHISTO',0); //pocita a ulozi do txt souboru histogram z tracku, kvuli probetrialum ve vFGN a pohlavnim rozdilum - 10.11.2014
 define('SAVETABLE',0); // jestli se ma ulozit individualni vystupni tabulka  - 14.11.2014
 define('SAVEHTML',0); // jestli se ma ulozit individualni HTML s odkazem na obrazek  - 14.11.2014
+define('MARKKOULE',0); // jestli kreslit znacky=cues koulemi na jejich skutecne pozice - u dat SpaNav
 /*
 jak vyresim tri ukoly
 - ziskani dat z tracku do standardizovane formy (a moznosti ruznych vstupnich tracku)
@@ -475,7 +476,7 @@ class Drf2Track {
 	            $this->trackvars->$framename->segmentsvar[$track][$phase][$l]->current(),
 	            $this->trackvars->$framename->startPointvar[$track][$phase][$l]->current(),
 	            $this->trackvars->$framename->marknamevar[$track][$phase][$l]->current());
-	        if($this->trackvars->$framename->markxyvar[$track][$phase][$l]->count()>0 && $laser>=0) 
+	        if($this->trackvars->$framename->markxyvar[$track][$phase][$l]->count()>0 && $laser>=0 && MARKKOULE) 
 	        	// znacka kruhem na jeji skutecne pozici - 13.11.2012 - netvori se u BVA dat
 	        	$img->Circle($this->trackvars->$framename->markxyvar[$track][$phase][$l]->current(), 
 	        		ARENAR*$this->trackvars->markradius/100, // z procent polomeru na polomer areny 140
