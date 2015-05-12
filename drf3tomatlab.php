@@ -91,18 +91,18 @@ if(VERZE=='aappIII-IIb'){ // 13.2.2014 - nastavuje se ve filelistu
 	$faze_pouzeukaz = array(8,9,0); //0=10; faze, kde se jen ukazuje na cil,nechodi se do cile - 16.4.2013
 	$trials_faze = array(0=>49,9=>49,8=>49);// v kterych fazi se ma kontrolovat pocet pokusu
 } elseif(VERZE=='aappOCD'){ // 7.2.2013 - nastavuje se ve filelistu
-	// AAPPIII
-	$cislamist = array("stred"=>-1,"ArenaGoal1"=>1,"ArenaGoal2"=>2,"RoomGoal1"=>3,"RoomGoal2"=>4);
-	$souradnicemist = array("ArenaGoal1"=>array(-420,-384),"ArenaGoal2"=>array(628,-344), // funkce goalpositions
-	                        "RoomGoal1"=>array(-282,-522),"RoomGoal2"=>array(606,240));
-	$ceskajmena = array("stred"=>"stred","ArenaGoal1"=>"ARENA1","ArenaGoal2"=>"ARENA2","RoomGoal1"=>"ROOM1","RoomGoal2"=>"ROOM2");
-	$stredareny = new CPoint(0,0);
+	// AAPP OCD
+	$cislamist = array("stred"=>-1,"ArenaMarkGoal"=>1,"ArenaPlaceGoal"=>2,"RoomMarkGoal"=>3,"RoomPlaceGoal"=>4);
+	$souradnicemist = array("ArenaMarkGoal"=>array(-420,-384),"ArenaPlaceGoal"=>array(628,-344), // funkce goalpositions
+	                        "RoomMarkGoal"=>array(-282,-522),"RoomPlaceGoal"=>array(606,240));
+	$ceskajmena = array("stred"=>"stred","ArenaPlaceGoal"=>"ARENA1","ArenaMarkGoal"=>"ARENA2","RoomPlaceGoal"=>"ROOM1","RoomMarkGoal"=>"ROOM2");
+	$stredareny = new CPoint(20,-4);
+	$CFrames = new Frames(array("RoomMarkGoal","RoomPlaceGoal"),array("ArenaMarkGoal","ArenaPlaceGoal"));
 	$polomerareny = 858;
-	$polomer_cilu = 148;
-	$CFrames = new Frames(array("RoomGoal1","RoomGoal2"),array("ArenaGoal1","ArenaGoal2"));
-	$faze_pouzeukaz = array(8,9,0); //0=10; faze, kde se jen ukazuje na cil,nechodi se do cile - 16.4.2013
-	$trials_faze = array(0=>49,9=>49,8=>49);// v kterych fazi se ma kontrolovat pocet pokusu
-}else { //defaultni hodnota VERZE aappI
+	$polomer_cilu = 237; // 148*8/5 - vetsi cile
+	$faze_pouzeukaz = array();
+	$trials_faze = array();
+} else { //defaultni hodnota VERZE aappI
 	//puvodni AAPP
 	$cislamist = array("stred"=>-1,"ArenaMarkGoal"=>1,"ArenaPlaceGoal"=>2,"RoomMarkGoal"=>3,"RoomPlaceGoal"=>4);
 	$souradnicemist = array("ArenaPlaceGoal"=>array(607, -160),"ArenaMarkGoal"=>array(-521, -332), 
