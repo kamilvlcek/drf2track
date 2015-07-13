@@ -31,10 +31,17 @@ class CDrf2Track_frame {
    * @return string
    */
   static function FrameName($activeframe){
-  	if($activeframe=="ARENA") return "AF";
-  	elseif($activeframe=="ROOM") return "RF";
-  	else return false;
+  	if($activeframe=="ARENA") {
+  		return "AF";
+  	}	elseif($activeframe=="ROOM") {
+  		return "RF";
+  	}  	else {
+  		debug_print_backtrace();
+		trigger_error("neznamy FrameName $activeframe",E_USER_ERROR);
+  		return false;
+  	} 
   }
+  	
   public function ResetTrial(){
   	$this->trialdistance =0;
   }

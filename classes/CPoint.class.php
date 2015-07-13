@@ -118,6 +118,7 @@ class CPoint implements ArrayAccess {
 	 */
 	public function AngleDiff($bod,$pocatek=false){
 		if( !($bod instanceof CPoint))	{
+			debug_print_backtrace();
 			trigger_error("bod neni CPoint",E_USER_ERROR);
 			return 0;
 		}
