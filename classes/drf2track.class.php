@@ -1114,12 +1114,7 @@ class Drf2Track {
 	 * @param CZasah $zasah
 	 */
 	private function UlozCilTxt($track,$phase,$trial,$zasah,$activeframe){
-		$framename = CDrf2Track_frame::FrameName($activeframe);
-	  if(!is_array($this->$framename->cilxy)){
-	    $cilxyarr = array($this->$framename->cilxy);
-	  } else {
-	    $cilxyarr = $this->$framename->cilxy;
-	  }
+	  $framename = CDrf2Track_frame::FrameName($activeframe);
 	  $output = '';
 	  foreach(array_keys($zasah->GoalArray()) as $goalname){
       $zasah->SetGoal($goalname);
@@ -1159,7 +1154,7 @@ class Drf2Track {
               ),
               ($kvadranty=$this->CKvadranty->Podily($goalname)), // tohle je array
               array(
-              	$this->PointingError($phase,$trial,$zasah),// uhlova chyba ukazani na cil ze startu - 26.3.2012
+              	$this->PointingError($phase,$trial,$zasah,$framename),// uhlova chyba ukazani na cil ze startu - 26.3.2012
               	empty($this->pointingtime[$phase][$trial]) ?0:$this->pointingtime[$phase][$trial],
               	$this->maxtime($track, $phase, $trial),
               	$this->vstupudocile,
@@ -1566,15 +1561,30 @@ class Drf2Track {
 	 * @param CZasah $zasah
 	 * @return deg
 	 */
-	private function PointingError($phase,$trial,$zasah){
+	private function PointingError($phase,$trial,$zasah,$frame){
 		if(empty($this->pointingangle[$phase][$trial]))
 			return 0;
 		else {
 			$zasahP = clone $zasah; // cil i start maji Y kladne dolu, musim je prevratit pro pocitani uhlu - 10.4.2012
-			$uhelcil =$zasahP->goal->ReverseY()->Angle($zasah->start->ReverseY()); 
-			return Angle::Normalize($this->pointingangle[$phase][$trial]- $uhelcil,true);
+			if(is_array($this->$frame->cilxy) && defined('SPOJITCILETRIALS') && SPOJITCILETRIALS!=""){
+				// vFNG - kategorialni chyba v ukazani v probetrialu
+				$goalxy = $this->$frame->cilxy;
+				$chybacil = array();
+				foreach($goalxy as $key=>$g){ // prvni cil v poradi je ten aktualni spravny
+					$uhelcil = $g->ReverseY()->Angle($zasah->start->ReverseY());
+					$chybacil[$key] = Angle::Normalize($this->pointingangle[$phase][$trial]- $uhelcil,true);
+				}
+				if(is_array($goalxy) && count($goalxy)>=3){
+					return ( abs($chybacil[0])<abs($chybacil[1]) && abs($chybacil[0])<abs($chybacil[2])) ? 0:1;
+				} else {
+					return $chybacil[0];
+				}
+				
+			} else {
+				$uhelcil =$zasahP->goal->ReverseY()->Angle($zasah->start->ReverseY());
+				return Angle::Normalize($this->pointingangle[$phase][$trial]- $uhelcil,true);
+			} 
 		}
-			
 	}
 	/**
 	 * vrati prumernou vzdalesnot od cile;
