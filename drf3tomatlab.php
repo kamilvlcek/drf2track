@@ -380,10 +380,13 @@ if(ANGLEHISTO){
 }
 
 trial_count_save($trial_count,$tabledir); // ulozi pocty trialu do dalsi tabulky
+$SSTable = new TableFile("$tabledir/subjects.xls"); // tabulka s unikatnimi cisly a jmeny subjektu - 21.1.2016
+$SSTable->AddColumns(array('cislo','jmeno'));
+foreach($CSubjects->SubjectNumbers() as $scislo=>$sname){
+	$SSTable->AddRow(array($scislo,$sname));
+}
+$SSTable->SaveAll(true);
 echo $CTime->time();
-
-
-
 
 
 

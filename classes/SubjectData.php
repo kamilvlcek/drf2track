@@ -60,7 +60,18 @@ class SubjectData {
 			return false;
 		}
 	}
-	
+	/**
+	 * vrati pole s cislama subjektu a jejich jmeny num=>name
+	 * @return array
+	 * @since 21.1.2016
+	 */
+	public function SubjectNumbers(){
+		$ss= array();
+		foreach($this->data as $subjectcode=>$d){
+			$ss[$d['subjectno']]=$subjectcode;
+		}
+		return $ss;
+	}
 	
 	
 }
