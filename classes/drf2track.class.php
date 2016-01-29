@@ -50,6 +50,7 @@ jak vyresim tri ukoly
 
 class Drf2Track {
   var $filename;
+  private $fileno; //29.1.2016 - chci do tabulky uhly ukladat i cislo subjektu
   var $error;
   var $counts; // pole [0-tracks][0-phases]=>trials
   var $names; // nazvy sloupcu tracku
@@ -191,9 +192,9 @@ class Drf2Track {
    * @param string $filename
    * @param unknown_type $filesetting
    */
-  function Drf2Track(&$trackvars,$filename,$filesetting){
+  function Drf2Track(&$trackvars,$filename,$filesetting,$fileno=false){
     $this->filename = $filename;
-    
+    $this->fileno=($fileno!==false)?$fileno:-1;
     $this->cilearr = array();
     $this->trialnames = new CTrialNames();
     $this->filesettings = $filesetting;
@@ -778,11 +779,12 @@ class Drf2Track {
       $filename = (TABLEFILE_MATLAB)?str_replace(" ","_",$this->filename):$this->filename;
       //$uhly_table = new TableFile("",$this->txttable->Handle());
       $this->uhlytable2 = new TableFile($filename."-uhly"); //16.9.2014 - udelam na to specialni tabulku
-      $this->uhlytable2->AddColumns(array("datum","filename","track","trial","phase","name","cilx","cily","bodx","body","uhel0","uhel1","u1-u0","dist0","dist1","d1-d0","angleerr","disterr"));
+      $this->uhlytable2->AddColumns(array("datum","filename","subjektno","track","trial","phase","name","cilx","cily","bodx","body","uhel0","uhel1","u1-u0","dist0","dist1","d1-d0","angleerr","disterr"));
 //      fwrite($this->fhtxt,"datum".COLUMNDELIM."filename".COLUMNDELIM."track".COLUMNDELIM."trial".COLUMNDELIM."phase".COLUMNDELIM."name".COLUMNDELIM."cilx".COLUMNDELIM."cily".COLUMNDELIM."bodx".COLUMNDELIM."body".COLUMNDELIM."uhel0".COLUMNDELIM."uhel1".COLUMNDELIM."u1-u0".COLUMNDELIM."dist0".COLUMNDELIM."dist1".COLUMNDELIM."d1-d0".COLUMNDELIM."angleerr".COLUMNDELIM."disterr\n");
       foreach ($this->cilearr as $track=>$tracks){
           foreach ($tracks as $trial=>$phases){
               for($phase =-2;$phase<count($this->trackvars->counts[$track]);$phase++){
+              	  if(!$this->trialsetting($phase<0?0:$phase,$trial)==EXCLUDEDTRIAL){ // 29.1.2016 - chci vynechat vyrazene trialy/faze
                   if($phase >= -1 && $phase < count($this->trackvars->counts[$track])-1 && isset($phases[$phase-1]) && isset($phases[$phase+1]) && isset($phases[$phase])){
                       $uhel0 = $phases[$phase-1]->goal->AngleDiff($phases[$phase+1]->goal,$phases[$phase]->goal);
                       $uhel1 = $phases[$phase-1]->hit->AngleDiff($phases[$phase+1]->hit,$phases[$phase]->hit);
@@ -807,7 +809,7 @@ class Drf2Track {
                       $uhel0 =$uhel1= $dist0 = $dist1 = $angleerr =$disterr ="0";
                   }
                   $this->uhlytable2->AddRow(array(date("j.n.Y H:m:i"),
-                      $filename,$track,$trial,$phase,
+                      $filename,$this->fileno,$track,$trial,$phase,
                       (isset($this->trackvars->RF->cnamevar[$track][$phase])?$this->trackvars->RF->cnamevar[$track][$phase]->current():"-"),
                       $phases[$phase]->goal->x,$phases[$phase]->goal->y,
                       $phases[$phase]->hit->x,$phases[$phase]->hit->y,
@@ -828,7 +830,8 @@ class Drf2Track {
                     round($disterr,2).
                     "\n";
                   fwrite($this->fhtxt,date("j.n.Y H:m:i").COLUMNDELIM.$this->setdelim($output));*/
-              }
+              	  }
+          	  }
           }
       }
       //dp($this->cilearr,"cilearr");

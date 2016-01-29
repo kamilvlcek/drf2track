@@ -142,7 +142,7 @@ foreach ($filename_arr as $groupname=>$groupdata) {
 	  		//$CDrf2Track = new Drf2Track(new SpaNavVars($filename,$cfgfile,$param),
 	  		//     $filename,$CFilelist->GetFileSettings($group,$filename));
 	  	}
-	  	$CDrf2Track = new Drf2Track($TrackData,$filename,$CFilelist->GetFileSettings($groupname,$filename));
+	  	$CDrf2Track = new Drf2Track($TrackData,$filename,$CFilelist->GetFileSettings($groupname,$filename),$fileno);
 	    if(!$CDrf2Track->error) { // chyba napriklad, kdyz soubor nebyl nalezen
 	    	dp($CDrf2Track->counts);
 	
