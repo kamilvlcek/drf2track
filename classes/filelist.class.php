@@ -234,7 +234,7 @@ class Filelist {
       if(FILELIST_DUPLICATES_OPAKOVANI>0){ // pridal jsem 9.9.2013 kvuli kontrole nadbytecnich souboru v experimentu aappShort
     		$CS = new SpaNavFilename($filename);
     		if(isset($this->filesall[$CS->Person()][$CS->Faze()])){
-    			$this->duplicates[]="$filename X ".$this->filesall[$CS->Person()][$CS->Faze()];
+    			$this->duplicates[]="$filename X person: ".basename($CS->Person()).", faze:".$CS->Faze();
     		} else { 
       			$this->filesall[$CS->Person()][$CS->Faze()] = $filename;	
     		}
