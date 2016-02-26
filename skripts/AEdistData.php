@@ -13,7 +13,7 @@ $jmeno_pacienta = "jk";
 //$filenames = array("stropek_2014_6_20_1307.csv","stropek_2014_6_20_1321.csv");
 //$jmeno_pacienta = "stropek";
 
-
+/*
 $filenames = array(
 	"vg140410_2014_IV_10_1035.csv","vg140410_2014_IV_10_1043.csv",
 	"rc140410_2014_IV_10_1445.csv",
@@ -25,6 +25,11 @@ $filenames = array(
 	"jk140514_2014_5_14_1110.csv","jk140514_2014_5_14_1118.csv"
 );
 $jmeno_pacienta = "kontroly";
+*/
+$filenames = array(
+	'tn160211_AEdist201601_2016_2_11_0931.csv'
+);
+$jmeno_pacienta = "p97";
 
 
 $CTable = new TableFile(DIR.$jmeno_pacienta."_aedist.xls");
