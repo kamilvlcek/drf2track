@@ -26,11 +26,12 @@ $filenames = array(
 );
 $jmeno_pacienta = "kontroly";
 */
-$filenames = array(
-	'tn160211_AEdist201601_2016_2_11_0931.csv'
-);
+/*
+$filenames = array('tn160211_AEdist201601_2016_2_11_0931.csv');
 $jmeno_pacienta = "p97";
-
+*/
+$filenames = array('ph151215_2015_12_15_1140.csv','ph151215_2015_12_15_1158.csv');
+$jmeno_pacienta = "p85";
 
 $CTable = new TableFile(DIR.$jmeno_pacienta."_aedist.xls");
 $CTable->AddColumns(array("file","keys","corr","rt","opakovani","zpetnavazba","podle"));
@@ -60,4 +61,5 @@ $CTable->SaveAll(true);
 $CTableM->SetPrecision(4,3);
 $CTableM->SaveAll(true);
 
+echo "OK";
 ?>
