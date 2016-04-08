@@ -34,7 +34,9 @@ if(isset($argc) && $argc >1){
 	//$filelist = 'skopolamin2014Trial4'; // 23.10.2014 pro Hanku Markovou
 	//$filelist = 'skopolamin2014Trial0'; // 24.10.2014 pro Hanku Markovou
 	// $filelist = 'lerch2015'; // 24.10.2014 pro Ondreje Lerche
-	$filelist = 'homocystein2015'; // 24.10.2014 pro Ondreje Lerche
+	//$filelist = 'homocystein2015'; // 24.10.2014 pro Ondreje Lerche
+	//$filelist = 'nedelska2015'; // 9.7.2015 pro Zuzanu Nedelskou
+	$filelist = 'nedelska2016'; // 14.1.2016 pro Zuzku
 }
 ($subjects = get_subjects($dir_filelist.$filelist.'_ve.txt')) or die; 
 // chybejici soubory jsou ve vyslednych datech vynechany, tak musim pracovat s puvodnim souborem

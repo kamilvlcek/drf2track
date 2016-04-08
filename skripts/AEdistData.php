@@ -13,7 +13,7 @@ $jmeno_pacienta = "jk";
 //$filenames = array("stropek_2014_6_20_1307.csv","stropek_2014_6_20_1321.csv");
 //$jmeno_pacienta = "stropek";
 
-
+/*
 $filenames = array(
 	"vg140410_2014_IV_10_1035.csv","vg140410_2014_IV_10_1043.csv",
 	"rc140410_2014_IV_10_1445.csv",
@@ -25,10 +25,21 @@ $filenames = array(
 	"jk140514_2014_5_14_1110.csv","jk140514_2014_5_14_1118.csv"
 );
 $jmeno_pacienta = "kontroly";
-
+*/
+/*
+$filenames = array('tn160211_AEdist201601_2016_2_11_0931.csv');
+$jmeno_pacienta = "p97";
+*/
+$filenames = array('ph151215_2015_12_15_1140.csv','ph151215_2015_12_15_1158.csv');
+$jmeno_pacienta = "p85";
 
 $CTable = new TableFile(DIR.$jmeno_pacienta."_aedist.xls");
 $CTable->AddColumns(array("file","keys","corr","rt","opakovani","zpetnavazba","podle"));
+
+$CTableM = new TableFile(DIR.$jmeno_pacienta."_aedist.txt");
+$CTableM->AddColumns(array("file","keys","corr","rt","opakovani","zpetnavazba","podle"));
+$CTableM->setMatlab(true);
+
 foreach($filenames as $f=>$fn){
 	$psychopy = new PsychopyData(DIR.$fn);
 	list($odpovedi,$factors) = $psychopy->Odpovedi("odpoved", array("opakovani","zpetnavazba","podle"));
@@ -36,7 +47,19 @@ foreach($filenames as $f=>$fn){
 		$factor = $factors[$ln];
 		$CTable->AddRow(array($f,$o['keys'],$o['corr'],$o['rt'],$factor['opakovani'],$factor['zpetnavazba'],$factor['podle']));
 	}
+	$psychopy->SetKeyValues(array('None'=>-1,'left'=>0,'right'=>1));
+	$psychopy->SetFactors(array('podle'=>array('cervena'=>0,'vy'=>1,'znacka'=>2)));
+	list($odpovedi,$factors) = $psychopy->Odpovedi("odpoved", array("opakovani","zpetnavazba","podle"),true);
+	foreach($odpovedi as $ln=>$o){
+		$factor = $factors[$ln];
+		$CTableM->AddRow(array($f,$o['keys'],$o['corr'],$o['rt'],$factor['opakovani'],$factor['zpetnavazba'],$factor['podle']));
+	}
 }
 $CTable->SetPrecision(4,3);
 $CTable->SaveAll(true);
+
+$CTableM->SetPrecision(4,3);
+$CTableM->SaveAll(true);
+
+echo "OK";
 ?>
