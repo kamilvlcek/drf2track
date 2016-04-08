@@ -5,9 +5,10 @@ require_once 'classes/TableFile.class.php';
 //define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\PPAlocalizer\\');
 define('DIR','d:\\prace\\programovani\\psychopy\\PPAlocalizer\\data\\');
 
-$filenames = array('tn160211_PPAlocalizerEEG_2016_2_11_0955.csv');
-$jmeno_pacienta = "p97";
-
+//$filenames = array('tn160211_PPAlocalizerEEG_2016_2_11_0955.csv');
+//$jmeno_pacienta = "p97";
+$filenames = array('ph151215_PPAlocalizerEEG_2015_12_15_1212.csv');
+$jmeno_pacienta = "p85";
 $CTable = new TableFile(DIR.$jmeno_pacienta."_ppa.xls");
 $CTable->AddColumns(array("file","keys","corr","rt","opakovani_obrazku","cisloobrazku","pauza","kategorie"));
 
@@ -23,6 +24,7 @@ foreach($filenames as $f=>$fn){
 		$CTable->AddRow(array($f,$o['keys'],$o['corr'],$o['rt'],$factor['opakovani_obrazku'],$factor['cisloobrazku'],$factor['pauza'],$factor['kategorie']));
 	}
 	$psychopy->SetKeyValues(array('None'=>-1,'space'=>1));
+	$psychopy->opakovaniReset();
 	//$psychopy->SetFactors(array('kategorie'=>array('cervena'=>0,'vy'=>1,'znacka'=>2))); // kategori v datech neni
 	list($odpovedi,$factors) = $psychopy->Odpovedi("odpoved", array("opakovani_obrazku","pauza","kategorie","cisloobrazku"),true);
 	foreach($odpovedi as $ln=>$o){

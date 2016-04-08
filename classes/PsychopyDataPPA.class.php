@@ -62,6 +62,12 @@ class PsychopyDataPPA extends PsychopyData {
 		return (int) $this->opakovani[$obrazek];
 	}
 	/**
+	 * smaze pocty opakovani
+	 */
+   public function opakovaniReset(){
+		$this->opakovani = array(); 
+	}
+	/**
 	 * vrati kategorii obrazku podle jeho jmena;
 	 * protoze ve starych datech z psychopy, nejsou kategori uvedene;
 	 * vraci prazdny retezec nebo -1, pokud obrazek nenalezen
