@@ -1,14 +1,19 @@
 <?php 
 require_once 'classes/PsychopyDataPPA.class.php';
 require_once 'classes/TableFile.class.php';
+require_once 'classes/CmdLine.class.php';
 // 31.3.2015 prepracovano z AEDistData
 //define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\PPAlocalizer\\');
 define('DIR','d:\\prace\\programovani\\psychopy\\PPAlocalizer\\data\\');
 
-//$filenames = array('tn160211_PPAlocalizerEEG_2016_2_11_0955.csv');
-//$jmeno_pacienta = "p97";
-$filenames = array('ph151215_PPAlocalizerEEG_2015_12_15_1212.csv');
-$jmeno_pacienta = "p85";
+$cmdline = new CmdLine();
+if($cmdline->Pocet()<2) {
+	echo "potrebuji dva argumenty: kod subjektu a jmeno souboru";
+	exit(-1);
+}
+$jmeno_pacienta = $cmdline->Arg(0); // kod subjektu napr p85
+$filenames = array($cmdline->Arg(1)); // jmeno vystupu z psychopy, pro PPA vzdy jen jeden soubor
+
 $CTable = new TableFile(DIR.$jmeno_pacienta."_ppa.xls");
 $CTable->AddColumns(array("file","keys","corr","rt","opakovani_obrazku","cisloobrazku","pauza","kategorie"));
 
