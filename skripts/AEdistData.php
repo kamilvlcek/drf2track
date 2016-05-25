@@ -1,37 +1,22 @@
 <?php 
 require_once 'classes/PsychopyData.class.php';
 require_once 'classes/TableFile.class.php';
-
+require_once 'classes/CmdLine.class.php';
 //define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\AEDist\\');
 define('DIR','d:\\prace\\programovani\\psychopy\\AEDist\\data\\');
-/* 
-$filenames = array("jk140514_2014_5_14_1110.csv","jk140514_2014_5_14_1118.csv");
-$jmeno_pacienta = "jk";
-*/
 
 
-//$filenames = array("stropek_2014_6_20_1307.csv","stropek_2014_6_20_1321.csv");
-//$jmeno_pacienta = "stropek";
-
-/*
-$filenames = array(
-	"vg140410_2014_IV_10_1035.csv","vg140410_2014_IV_10_1043.csv",
-	"rc140410_2014_IV_10_1445.csv",
-	"jj140423_2014_IV_23_1445.csv","jj140423_2014_IV_23_1452.csv",
-	"jm140424_2014_IV_24_1041.csv","jm140424_2014_IV_24_1050.csv",
-	"mp140424_2014_IV_24_1416.csv","mp140424_2014_IV_24_1424.csv",
-	"bs140428_2014_IV_28_1637.csv","bs140428_2014_IV_28_1645.csv",
-	"js140429_2014_IV_29_1028.csv","js140429_2014_IV_29_1036.csv",
-	"jk140514_2014_5_14_1110.csv","jk140514_2014_5_14_1118.csv"
-);
-$jmeno_pacienta = "kontroly";
-*/
-/*
-$filenames = array('tn160211_AEdist201601_2016_2_11_0931.csv');
-$jmeno_pacienta = "p97";
-*/
-$filenames = array('ph151215_2015_12_15_1140.csv','ph151215_2015_12_15_1158.csv');
-$jmeno_pacienta = "p85";
+$cmdline = new CmdLine();
+if($cmdline->Pocet()<2) {
+	echo "potrebuji dva argumenty: kod subjektu a jmeno souboru";
+	exit(-1);
+}
+$jmeno_pacienta = $cmdline->Arg(0); // kod subjektu napr p85
+$filenames = array();
+$filenames[] = $cmdline->Arg(1); // jmeno vystupu z psychopy, pro AEdist ze zacatku dva a pozdeji jeden soubor
+if($cmdline->Pocet()>=3) {
+	$filenames[] = $cmdline->Arg(2); 
+}
 
 $CTable = new TableFile(DIR.$jmeno_pacienta."_aedist.xls");
 $CTable->AddColumns(array("file","keys","corr","rt","opakovani","zpetnavazba","podle"));
