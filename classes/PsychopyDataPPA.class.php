@@ -9,13 +9,17 @@ class PsychopyDataPPA extends PsychopyData {
 	 */
 	protected function ColFactors($factor_names, $vals){
 		foreach($factor_names as $fn){ //fn = factor name
-			if($fn=="kategorie" || $fn=="opakovani_obrazku"){ // kategorie zatim v datech neni, opakovani obrazku je spatne - 31.3.2016
+			/*if($fn=="kategorie" || $fn=="opakovani_obrazku"){ // kategorie zatim v datech neni, opakovani obrazku je spatne - 31.3.2016
 				$fn_search = "obrazek"; // chci ulozit sloupec, kde je jmeno obrazku
 			} else {
 				$fn_search = $fn;
 			}
- 			if( ($col = array_search($fn_search, $vals)) !==false)
+			*/
+ 			if( ($col = array_search($fn, $vals)) !==false){
  				$col_factors[$fn]= $col;
+ 			} else {
+ 				$col_factors[$fn]= -1; // pokud sloupec nenajdu, chci predat jmeno obrazku, ale zaporne aby se to dalo poznat - 15.2.2017
+ 			}
  		}
  		$this->col_factors = $col_factors;
 	}
@@ -23,9 +27,14 @@ class PsychopyDataPPA extends PsychopyData {
 	 * @see PsychopyData::GetFactorValue()
 	 */
 	protected function GetFactorValue($matlab, $fn, $vals, $cl){
-		if($fn=="kategorie"){ // kategorie zatim v datech neni - 31.3.2016
-			return $this->kategorie($vals[$cl],!$matlab);
+		if($fn=="kategorie"){ 
+			if($cl<0){ // kategorie zatim v datech neni - 31.3.2016, zaporna hodnota sloupce se nastavi v ColFactors
+				return $this->kategorie($vals[-$cl],!$matlab);
+			} else {   // kategorie v novych datech uz je
+				return $this->kategorie_translate($vals[$cl],!$matlab); 
+			}
 		} elseif($fn=="opakovani_obrazku"){
+			if($cl<0) $cl = -$cl; // pokud se opakovani nenaslo ve sloupcich
 			return $this->opakovaniObrazku($vals[$cl]);
 		} elseif(is_numeric($vals[$cl])){
 			return (int) $vals[$cl];
@@ -66,6 +75,26 @@ class PsychopyDataPPA extends PsychopyData {
 	 */
    public function opakovaniReset(){
 		$this->opakovani = array(); 
+	}
+	/**
+	 * vrati puvodni jmeno kategorie obrazku z jeho noveho jmena (od p110)
+	 * @param string $katnova
+	 * @param bool $string
+	 * @return string/int
+	 */
+	private function kategorie_translate($katnova,$string=true){
+		$katint = array("Ovoce"=>0,"Scene"=>1,"Face"=>2,"Object"=>3);
+		$kat = array (
+			"objects"=>"Object",
+			"faces"=>"Face",
+			"scenes"=>"Scene",
+			"fruit_vegetables"=>"Ovoce"
+		);
+		if(isset($kat[$katnova])){
+			return $string ? $kat[$katnova] : (int) $katint[$kat[$katnova]];
+		} else {
+			return $string ? "" : -1;
+		}	
 	}
 	/**
 	 * vrati kategorii obrazku podle jeho jmena;
