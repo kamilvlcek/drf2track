@@ -9,6 +9,7 @@ wholeimages/
 tables/
 images/
 *.treeDB
+*.mm
 *.graphml
 *.csv
 *.xls
