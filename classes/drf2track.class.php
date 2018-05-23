@@ -11,6 +11,7 @@ require_once 'classes/Kvadranty.class.php';
 require_once 'classes/CDrf2Track_frame.php';
 require_once 'classes/Kvadranty.class.php';
 require_once 'classes/CHistogram.class.php';
+require_once 'classes/TrackExport.class.php';
 
 //if(!defined('INPUTDIR'))
 //  define('INPUTDIR','.');
@@ -39,7 +40,8 @@ define('TARGETCORRIDORANGLE',20); // max uhlovy rozdil v target coridoru - uhel 
 define('KLAVESYKRESLI',1); // jestli do obrazku kreslit stlacene klavesy - 15.10.2014
 define('FILENAMEKRESLI',1); // jestli do obrazku kreslit nazev souboru  - 15.10.2014
 define('TRACKHISTO',0); //pocita a ulozi do txt souboru histogram z tracku, kvuli probetrialum ve vFGN a pohlavnim rozdilum - 10.11.2014
-define('SAVETABLE',0); // jestli se ma ulozit individualni vystupni tabulka  - 14.11.2014
+define('TRACKEXPORT',1); 
+define('SAVETABLE',1); // jestli se ma ulozit individualni vystupni tabulka  - 14.11.2014
 define('SAVEHTML',0); // jestli se ma ulozit individualni HTML s odkazem na obrazek  - 14.11.2014
 define('MARKKOULE',0); // jestli kreslit znacky=cues koulemi na jejich skutecne pozice - u dat SpaNav
 /*
@@ -360,7 +362,7 @@ class Drf2Track {
     $this->SaveHtml(); // kamil 29.9.2009
     if($this->trackvars->AngleInfo()) // kamil 16.8.2010
         $this->viewangle->SaveTable($this->filename_towrite(TABLESDIR));
-    if(TRACKHISTO) $this->TrackHisto();
+    if(TRACKHISTO || TRACKEXPORT) $this->TrackHisto();
   }
   function createimg($track){
      $img = array();
@@ -1793,29 +1795,34 @@ class Drf2Track {
 	 * @since 10.11.2014
 	 */
 	private function TrackHisto(){
+		$TrackExp = new TrackExport(); // 2018-05-23 - nova trida na export tracku
 		foreach($this->trackvars->roomxyarr as $track=>$trackdata){
 			foreach($trackdata as $phase=>$phasedata){
 				foreach($phasedata as $trial=>$trialdata){
 					$klavesy = $this->trackvars->klavesyarr[$track][$phase][$trial];
 					$Histo = new Histogram2D(array('min'=>-140,'max'=>140,'count'=>30), array('min'=>-140,'max'=>140,'count'=>30));
+					
 					foreach($trialdata as $n=>$xy){
 						if(isset($klavesy[$n]) && $klavesy[$n]=='s'){
 							$Histo->Reset();
 						}
 						$Histo->AddValue($xy[0], $xy[1]);
+						$TrackExp->AddPoint($xy, $n, $trial, $phase, $track, !empty($klavesy[$n])?$klavesy[$n]:false);
 					}
-					$Histotable = $Histo->FreqTable();
-					$Histotable->SetPrecision(false);
-					$Histotable->setDelims("\t", '.');
-					$filename = dirname($this->filename)."/trackhisto/".basename($this->filename);
-					$Histotable->SaveAll(true,"{$filename}_trackhisto_{$track}_{$phase}_{$trial}.xls");
+					if(TRACKHISTO){
+						$Histotable = $Histo->FreqTable();
+						$Histotable->SetPrecision(false);
+						$Histotable->setDelims("\t", '.');
+						$filename = dirname($this->filename)."/trackhisto/".basename($this->filename);
+						$Histotable->SaveAll(true,"{$filename}_trackhisto_{$track}_{$phase}_{$trial}.xls");
+					}
+					
 				}
 			}
 		}
-		
-		
-		
+		if (TRACKEXPORT) {
+			$TrackExp->Export($this->filename);
+		}
 	}
-
 }
 ?>
