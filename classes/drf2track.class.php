@@ -1801,13 +1801,18 @@ class Drf2Track {
 				foreach($phasedata as $trial=>$trialdata){
 					$klavesy = $this->trackvars->klavesyarr[$track][$phase][$trial];
 					$Histo = new Histogram2D(array('min'=>-140,'max'=>140,'count'=>30), array('min'=>-140,'max'=>140,'count'=>30));
-					
+					$time = $this->trackvars->timearr[$track][$phase][$trial];				 
 					foreach($trialdata as $n=>$xy){
 						if(isset($klavesy[$n]) && $klavesy[$n]=='s'){
 							$Histo->Reset();
 						}
 						$Histo->AddValue($xy[0], $xy[1]);
-						$TrackExp->AddPoint($xy, $n, $trial, $phase, $track, !empty($klavesy[$n])?$klavesy[$n]:false);
+						if(isset($this->trackvars->roomxyavg[$track][$phase][$trial][$n])){
+							$xyavg = $this->trackvars->roomxyavg[$track][$phase][$trial][$n];
+						} else {
+							$xyavg = array(0,0);
+						}
+						$TrackExp->AddPoint($xy, $n, $trial, $phase, $track, $xyavg, $time[$n], !empty($klavesy[$n])?$klavesy[$n]:false);
 					}
 					if(TRACKHISTO){
 						$Histotable = $Histo->FreqTable();

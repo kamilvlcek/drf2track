@@ -95,7 +95,8 @@ class CTrackVars {
 
   var  $envelope; // array[0-1][a,b,c] - dve obecne rovnice primek
   var  $filename;
-  var  $timearr; // plni se jen pokud je TimeInfo() = true;
+  var  $timearr; // plni se jen pokud je TimeInfo() = true; 
+  		// timestamp kazde hodnoty tracku, pouzivame jen v iegoallo - 24.5.2018
   
   // FRAME SPECIFIC
   // TRACK
@@ -372,7 +373,7 @@ class CTrackVars {
       $phase = $vals[6];
       $pausa = $vals[7];
       $frameno = $vals[0];
-      $klavesa = $vals[$this->klavesaposition];
+      $klavesa = $vals[$this->klavesaposition];      
       $phaserepeat = $vals[$this->klavesaposition+1];
       $roomxy = $this->inversey ? array( (float) $vals[1], (float) $vals[2])  : array( (float) $vals[1], - (float) $vals[2]); 
       if(!empty($this->keytocues[$phase]) && $klavesa==$this->keytocues[$phase] ){
@@ -432,7 +433,8 @@ class CTrackVars {
         $this->avoidarr[$track][$phase][$trial][] = $this->avoidval($vals,$track,$phase,$klavesa);
         // *********************
         if($this->TimeInfo()){
-          $this->timearr[$track][$phase][$trial][]=$this->FramesToSec($frameno); // cas v sekundach
+          $this->timearr[$track][$phase][$trial][]=  isset($vals[$this->klavesaposition+4]) ? // pokud mam timestampy v tracku - jen data z ieeg ego allo 
+          		$vals[$this->klavesaposition+4]: $this->FramesToSec($frameno); // cas v sekundach
         }
       }
       // VSTUP DO CILE
