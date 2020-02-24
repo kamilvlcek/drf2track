@@ -1491,8 +1491,13 @@ class Drf2Track {
 	 */
 	private function GoalName($track,$phase,$trial){
 		// pokud je jmeno definovane v const TRIALNAMES, tak pouziju tu
-		$name = $this->trialnames->Name($phase,$trial,true);
-		if($name) {
+		if (isset($this->filesettings['trialnames'])){ // pokud mam definovany trial name pro tento file
+			$name=$this->filesettings['trialnames']->Name($phase,$trial,1); // jedna se o objekt CTrialNames
+		}
+		if(empty($name)){
+			$name = $this->trialnames->Name($phase,$trial,true);
+		}
+		if(!empty($name)) {
 		  return $name;
 		} else { 
 		  // jinak pouziju pojmenovani z tracku

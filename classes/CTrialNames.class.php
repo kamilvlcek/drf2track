@@ -12,14 +12,19 @@ class CTrialNames  {
    private $names = array();
    private $namegroups = array();
 
-   function __construct() {
-     if(defined('TRIALNAMES')){
-     	  $names = explode("#",TRIALNAMES);
+   function __construct($trialnames='') {
+	   	// 24.2.2020 - trialnames muzou byt definovany z const nebo z teto promenne
+     	if ( empty($trialnames) && defined('TRIALNAMES')){
+     		$trialnames = TRIALNAMES;
+   		}
+   		if(!empty($trialnames)){
+     	  $names = explode("#",$trialnames); 
      	  // napriklad R1[0;0 2 4 6]#R2[1;0 2 4 6]#RS[2;0 2 4 6]#L1[0;1 3 5 7]#L2[1;1 3 5 7]#LS[2;1 3 5 7] 
      	  // napriklad M1[0 1;0 2 4 6]#S2[0 1;0 2 4 6]
-     	  foreach ($names as $name){
-     	  	list($trialname,$loc) = explode ("[",trim($name));
-     	  	list($loc,$namegroup) = explode("]",trim($loc));
+     	  // nebo M1a[0,0 3 6 9 12 15 18 21 24 27 30]M1
+     	  foreach ($names as $name){// napr name=R1[0;0 2 4 6]
+     	  	list($trialname,$loc) = explode ("[",trim($name)); // napr trialname=R1
+     	  	list($loc,$namegroup) = explode("]",trim($loc)); // napr. namegroup = M1
      	  	list($phase_str,$trials_string) = explode(",",trim($loc));
      	  	$phases = explode(" ",trim($phase_str));
      	  	$trials = explode(" ",trim($trials_string));
@@ -31,7 +36,7 @@ class CTrialNames  {
      	  		}
      	  	}
      	  }
-     }
+     	}
 	 }
 	 /**
 	  * vrati jmeno podle faze a trialu

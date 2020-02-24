@@ -1,6 +1,7 @@
 <?php
 
 require_once 'classes/SpaNavFilename.class.php';
+require_once 'classes/CTrialNames.class.php';
 define('EXCLUDEDTRIAL','exclude'); // text napsany v trial setttings, ktery znamena, ze trial je vyrazen
 //if(!defined('FILELIST_DUPLICATES_OPAKOVANI')) // funguje jako definice ve filelistu
 //  define('FILELIST_DUPLICATES_OPAKOVANI',0); //jestli ma byt je jedno opakovani za cloveka a fazi (pouze pro SpaNav data)
@@ -192,11 +193,12 @@ class Filelist {
   			$this->FileSettings($group,$filename,$sett);
   		}
   	}
+  	// tady uz je jedno nastaveni
   	if($settings{0}=="!"){ // vyrazeni trialu - nic jineho zatim neznam
-  		$parts = explode(",",substr($settings,1));
+  		$parts = explode(",",substr($settings,1)); // napr |!0-0, 1-0, 2-0,0-1, 1-1, 2-1,0-2, 1-2, 2-2
   		foreach($parts as $part){
   			list($phase,$trial)=explode("-",trim($part));
-  			if(strpos($trial, ":")!==false){ // 18.10.2012 moznost vynechani serie trialu
+  			if(strpos($trial, ":")!==false){ // 18.10.2012 moznost vynechani serie trialu, napr |!0-3:9,0-13:23 
   				list($trial0,$trial1)= explode(":",$trial);
   				for($j=$trial0;$j<=$trial1;$j++){
   					$this->filesetting[$group][$filename][$phase][$j] = EXCLUDEDTRIAL;
@@ -205,9 +207,12 @@ class Filelist {
   		    	$this->filesetting[$group][$filename][$phase][$trial] = EXCLUDEDTRIAL;
   			}
   		}
-  	} elseif(substr(strtolower($settings),0,6)=="track:"){
+  	} elseif(substr(strtolower($settings),0,6)=="track:"){ // moznost vybrat track, napr |track:0 - 24.2.2020, kvuli egoallosleep
   		$track = (int) substr($settings,6);
   		$this->filesetting[$group][$filename]['track']=$track;
+  	} elseif(substr(strtolower($settings),0,11)=="trialnames:"){
+  		$trialnames = substr($settings,11);
+  		$this->filesetting[$group][$filename]['trialnames']=new CTrialNames($trialnames); // ulozim si cely objekt
   	}
   }
   /**
