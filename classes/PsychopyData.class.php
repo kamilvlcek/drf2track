@@ -111,7 +111,11 @@ class PsychopyData {
  	 */
  	protected function GetFactorValue($matlab,$fn,$vals,$cl){
  		if(is_numeric($vals[$cl])){
-			return (int) $vals[$cl];
+ 			if (is_int($vals[$cl]) || ctype_digit($vals[$cl])){ // if it is int or positive integer string 
+				return (int) $vals[$cl];
+ 			} else {
+ 				return (double) $vals[$cl];
+ 			}
 		} elseif($matlab && isset($this->factors[$fn][$vals[$cl]])) {
 			return (int) $this->factors[$fn][$vals[$cl]];
 		} else {
