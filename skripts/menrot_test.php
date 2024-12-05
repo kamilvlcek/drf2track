@@ -4,7 +4,7 @@
 //$filelist = "dgMenrot201307.txt"; //16.7.2013
 //$filelist = "dgMenrot201308.txt"; //28.8.2013
 //$filelist = "dgMenrot201308b.txt"; //2.9.2013
-$filelist = "./filelists/dataDeti.txt"; //9.6.2015 - Katka Subertova        
+$filelist = "./filelists/dataDeti.txt"; //9.6.2015 - Katka Subertova     - data z PxLab   
 
 if(!defined('LOGFILE')) define('LOGFILE',$filelist.".menrot.log");
 require_once('classes/filelist.class.php');

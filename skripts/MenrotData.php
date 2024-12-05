@@ -2,7 +2,8 @@
 require_once 'classes/PsychopyData.class.php';
 require_once 'classes/TableFile.class.php';
 require_once 'classes/CmdLine.class.php';
-define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\Menrot\\');
+//define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\Menrot\\');
+define('DIR','d:\\prace\\programovani\\psychopy\\Menrot\\data\\');
 
 $cmdline = new CmdLine();
 if($cmdline->Pocet()<2) {

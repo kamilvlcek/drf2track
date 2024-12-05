@@ -2,7 +2,9 @@
 require_once 'classes/PsychopyData.class.php';
 require_once 'classes/TableFile.class.php';
 require_once 'classes/CmdLine.class.php';
-define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\Domecek\\');
+//define('DIR','d:\\prace\\homolka\\epileptici EEG\\vysledky\\Domecek\\');
+//define('DIR','d:\\prace\\programovani\\psychopy\\Domecek\\data\\');
+define('DIR','d:\\prace\\programovani\\psychopy\\Domecek\\data\\PORG\\');
 
 $cmdline = new CmdLine();
 if($cmdline->Pocet()<2) {
@@ -19,7 +21,7 @@ if($cmdline->Pocet()>=3) {
 $CTable = new TableFile(DIR.$jmeno_pacienta."_domek.xls"); // vystupni soubor
 $CTable->AddColumns(array("file","keys","corr","rt","block","zpetnavazba","condition","caspauza")); // sloupce vystupniho souboru
 
-$CTableM = new TableFile(DIR.$jmeno_pacienta."_menrot.txt"); 
+$CTableM = new TableFile(DIR.$jmeno_pacienta."_domek.txt"); 
 $CTableM->AddColumns(array("file","keys","corr","rt","block","zpetnavazba","condition","caspauza"));
 $CTableM->setMatlab(true);
 

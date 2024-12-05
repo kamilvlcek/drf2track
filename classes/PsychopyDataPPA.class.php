@@ -49,7 +49,7 @@ class PsychopyDataPPA extends PsychopyData {
 	 */
 	protected function GetCorr($vals, $col_corr, $col_keys){
 		$kategorie = $this->kategorie($vals[$this->col_factors['kategorie']]);
-		if($kategorie == 'Ovoce' && $vals[$col_keys]=='space'){
+		if($kategorie == 'Ovoce' && ($vals[$col_keys]=='space' || $vals[$col_keys]=='a')){
 			return 1; // spravne je, kdyz zmacknul mezenik pri ovoci
 		} elseif($kategorie != 'Ovoce' && $vals[$col_keys]=='None'){
 			return 1;

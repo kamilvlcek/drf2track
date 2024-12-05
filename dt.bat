@@ -1,2 +1,2 @@
-C:\php53\php.exe drf2track.php %1
+c:\php54\php.exe drf2track.php %1
 
